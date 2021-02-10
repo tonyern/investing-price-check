@@ -1,11 +1,13 @@
-import './App.css';
+import React from "react";
+import Metals from "./components/Metals";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <h1>Hello</h1>
+    <div>
+      <h1>Current Price of Gold & Silver</h1>
+      <Metals />
     </div>
   );
-}
+};
 
 export default App;
