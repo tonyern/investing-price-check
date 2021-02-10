@@ -21,12 +21,25 @@ const App = () => {
       });
   };
 
+  const retrieveGold = () => {
+    if (metalPrices !== {}) {
+      return Math.round(1 / metalPrices.rates.XAU);
+    }
+  };
+
+  const retrieveSilver = () => {
+    if (metalPrices !== {}) {
+      return Math.round(1 / metalPrices.rates.XAG);
+    }
+  };
+
   const Metals = () => {
     return (
       <div>
         <ul>
-          <li>Gold: ${Math.round(1 / metalPrices.rates.XAU)}</li>
-          <li>Silver: ${Math.round(1 / metalPrices.rates.XAG)}</li>
+          {fetchAPI()}
+          <li>Gold: ${retrieveGold}</li>
+          <li>Silver: ${retrieveSilver}</li>
           <button onClick={fetchAPI}>Get Price</button>
         </ul>
       </div>
