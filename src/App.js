@@ -37,7 +37,6 @@ const App = () => {
     return (
       <div>
         <ul>
-          {fetchAPI()}
           <li>Gold: ${retrieveGold}</li>
           <li>Silver: ${retrieveSilver}</li>
           <button onClick={fetchAPI}>Get Price</button>
