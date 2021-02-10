@@ -25,8 +25,8 @@ const App = () => {
     return (
       <div>
         <ul>
-          <li>Gold:</li>
-          <li>Silver:</li>
+          <li>Gold: ${Math.round(1 / metalPrices.rates.XAU)}</li>
+          <li>Silver: ${Math.round(1 / metalPrices.rates.XAG)}</li>
           <button onClick={fetchAPI}>Get Price</button>
         </ul>
       </div>
