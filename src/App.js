@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 const App = () => {
   const metalsAPI = {
@@ -11,13 +12,25 @@ const App = () => {
   const [metalPrices, setMetalPrices] = useState({});
 
   const fetchAPI = () => {
-    fetch(
-      `${metalsAPI.base}?access_key=${metalsAPI.key}&base=${metalsAPI.currency}&${metalsAPI.metals}`
-    )
-      .then((res) => res.json())
-      .then((result) => {
-        setMetalPrices(result);
-        console.log(result);
+    axios
+      .get(
+        `${metalsAPI.base}?access_key=${metalsAPI.key}&base=${metalsAPI.currency}&${metalsAPI.metals}`
+      )
+      .then((response) => {
+        setMetalPrices(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        if (error.response) {
+          // Error if error in retrieving data.
+          console.log(error.response.data);
+        } else if (error.request) {
+          // Error if no response was received.
+          console.log(error.request);
+        } else {
+          // Other errors.
+          console.log(error.message);
+        }
       });
   };
 
