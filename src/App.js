@@ -40,8 +40,8 @@ const App = () => {
     <div>
       <h1>Current Price of Gold & Silver</h1>
       <ul>
-        <li>Gold: ${silverPrice}</li>
-        <li>Silver: ${goldPrice}</li>
+        <li>Gold: ${goldPrice}</li>
+        <li>Silver: ${silverPrice}</li>
         <button onClick={fetchAPI}>Get Price</button>
       </ul>
     </div>
