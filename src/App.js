@@ -9,7 +9,8 @@ const App = () => {
     metals: "XAU,XAG",
   };
 
-  const [metalPrices, setMetalPrices] = useState({});
+  const [silverPrice, setSilverPrice] = useState(0);
+  const [goldPrice, setGoldPrice] = useState(0);
 
   const fetchAPI = () => {
     axios
@@ -17,8 +18,9 @@ const App = () => {
         `${metalsAPI.base}?access_key=${metalsAPI.key}&base=${metalsAPI.currency}&${metalsAPI.metals}`
       )
       .then((response) => {
-        setMetalPrices(response.data);
         console.log(response.data);
+        setGoldPrice(Math.round(1 / response.data.rates.XAU));
+        setSilverPrice(Math.round(1 / response.data.rates.XAG));
       })
       .catch((error) => {
         if (error.response) {
@@ -34,34 +36,14 @@ const App = () => {
       });
   };
 
-  const retrieveGold = () => {
-    if (metalPrices !== {}) {
-      return Math.round(1 / metalPrices.rates.XAU);
-    }
-  };
-
-  const retrieveSilver = () => {
-    if (metalPrices !== {}) {
-      return Math.round(1 / metalPrices.rates.XAG);
-    }
-  };
-
-  const Metals = () => {
-    return (
-      <div>
-        <ul>
-          <li>Gold: ${retrieveGold}</li>
-          <li>Silver: ${retrieveSilver}</li>
-          <button onClick={fetchAPI}>Get Price</button>
-        </ul>
-      </div>
-    );
-  };
-
   return (
     <div>
       <h1>Current Price of Gold & Silver</h1>
-      <Metals />
+      <ul>
+        <li>Gold: ${silverPrice}</li>
+        <li>Silver: ${goldPrice}</li>
+        <button onClick={fetchAPI}>Get Price</button>
+      </ul>
     </div>
   );
 };
