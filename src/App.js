@@ -9,8 +9,8 @@ const App = () => {
     metals: "XAU,XAG",
   };
 
-  const [silverPrice, setSilverPrice] = useState(0);
-  const [goldPrice, setGoldPrice] = useState(0);
+  const [silverPrice, setSilverPrice] = useState("---");
+  const [goldPrice, setGoldPrice] = useState("---");
 
   const fetchAPI = () => {
     axios
