@@ -1,0 +1,26 @@
+/** Gets rid of the bullet points on unordered lists. */
+ul {
+  list-style-type: none;
+}
+
+.asset-price-box {
+  text-align: center;
+}
+
+.asset-price-box .title {
+  font-size: 48px;
+  font-weight: 1000;
+}
+
+.asset-price-box .asset {
+  font-size: 20px;
+  margin: 10px 0px 10px 0px;
+}
+
+.price-btn {
+  padding: 0px 130px 0px 130px;
+}
+
+.price-btn .price-btn-title {
+  font-size: 32px;
+}

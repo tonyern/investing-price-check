@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./asset-price-checker.css";
 
 const AssetPriceChecker = () => {
   const metalsAPI = {
@@ -40,15 +41,19 @@ const AssetPriceChecker = () => {
   };
 
   return (
-    <div>
-      <h1>Current Prices of Assets</h1>
+    <div className="asset-price-box">
+      <div className="title">Current Asset Prices</div>
+
       <ul>
-        <li>Bitcoin: ${bitcoinPrice}</li>
-        <li>Bitcoin Cash: ${bitcoinCashPrice}</li>
-        <li>Gold: ${goldPrice}</li>
-        <li>Silver: ${silverPrice}</li>
-        <button onClick={fetchAPI}>Get Price</button>
+        <li className="asset">Bitcoin: ${bitcoinPrice}</li>
+        <li className="asset">Bitcoin Cash: ${bitcoinCashPrice}</li>
+        <li className="asset">Gold: ${goldPrice}</li>
+        <li className="asset">Silver: ${silverPrice}</li>
       </ul>
+
+      <button className="price-btn" onClick={fetchAPI}>
+        <p className="price-btn-title">Get Price</p>
+      </button>
     </div>
   );
 };
