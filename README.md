@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# About
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -6,6 +6,8 @@ This project makes use of the Metals API. Metals API contains real-time prices o
 
 This is a project displaying assets users want to check the price of. There is a button
 where once a user clicks on it, it makes a call (using Axios) to the Metals API to retrieve asset prices. There it will set hook variables to whatever the current values are.
+
+![Screenshot of Asset Price Checker](public/Asset-Price-Checker-UI.png)
 
 ## Available Scripts
 
