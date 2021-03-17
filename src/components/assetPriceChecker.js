@@ -9,8 +9,9 @@ const AssetPriceChecker = () => {
     metals: "XAU,XAG",
   };
 
-  const [silverPrice, setSilverPrice] = useState("---");
+  const [bitcoinPrice, setBitcoinPrice] = useState("---");
   const [goldPrice, setGoldPrice] = useState("---");
+  const [silverPrice, setSilverPrice] = useState("---");
 
   const fetchAPI = () => {
     axios
@@ -19,6 +20,7 @@ const AssetPriceChecker = () => {
       )
       .then((response) => {
         console.log(response.data);
+        setBitcoinPrice(Math.round(1 / response.data.rates.BTC));
         setGoldPrice(Math.round(1 / response.data.rates.XAU));
         setSilverPrice(Math.round(1 / response.data.rates.XAG));
       })
@@ -40,6 +42,7 @@ const AssetPriceChecker = () => {
     <div>
       <h1>Current Prices of Assets</h1>
       <ul>
+        <li>Bitcoin: ${bitcoinPrice}</li>
         <li>Gold: ${goldPrice}</li>
         <li>Silver: ${silverPrice}</li>
         <button onClick={fetchAPI}>Get Price</button>
