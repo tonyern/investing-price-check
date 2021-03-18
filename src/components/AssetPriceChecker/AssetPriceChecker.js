@@ -51,7 +51,11 @@ const AssetPriceChecker = () => {
         <li className="asset">Silver: ${silverPrice}</li>
       </ul>
 
-      <button className="price-btn" onClick={fetchAPI}>
+      <button
+        className="price-btn"
+        data-testid="get-price-test"
+        onClick={fetchAPI}
+      >
         <p className="price-btn-title">Get Price</p>
       </button>
     </div>

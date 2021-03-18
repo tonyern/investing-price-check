@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Asset price checker snapshot test 1`] = `
+<div
+  className="asset-price-box"
+>
+  <div
+    className="title"
+  >
+    Current Asset Prices
+  </div>
+  <ul>
+    <li
+      className="asset"
+    >
+      Bitcoin: $
+      ---
+    </li>
+    <li
+      className="asset"
+    >
+      Bitcoin Cash: $
+      ---
+    </li>
+    <li
+      className="asset"
+    >
+      Gold: $
+      ---
+    </li>
+    <li
+      className="asset"
+    >
+      Silver: $
+      ---
+    </li>
+  </ul>
+  <button
+    className="price-btn"
+    data-testid="get-price-test"
+    onClick={[Function]}
+  >
+    <p
+      className="price-btn-title"
+    >
+      Get Price
+    </p>
+  </button>
+</div>
+`;
