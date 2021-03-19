@@ -14,6 +14,39 @@ const AssetPriceChecker = () => {
   const [goldPrice, setGoldPrice] = useState("---");
   const [silverPrice, setSilverPrice] = useState("---");
 
+  const dateBuilder = (d) => {
+    let months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    let days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+
+    let day = days[d.getDay()];
+    let date = d.getDate();
+    let month = months[d.getMonth()];
+    let year = d.getFullYear();
+
+    return `${day}, ${date} ${month} ${year}`;
+  };
+
   const fetchAPI = () => {
     axios
       .get(
@@ -43,6 +76,7 @@ const AssetPriceChecker = () => {
   return (
     <div className="asset-price-box">
       <div className="title">Current Asset Prices</div>
+      {dateBuilder(new Date())}
 
       <ul>
         <li className="asset">Bitcoin: ${bitcoinPrice}</li>
