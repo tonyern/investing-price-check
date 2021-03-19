@@ -1,6 +1,16 @@
-/** Gets rid of the bullet points on unordered lists. */
-ul {
-  list-style-type: none;
+table,
+th,
+td {
+  border: 1px solid black;
+}
+
+table {
+  width: 100%;
+}
+
+th,
+td {
+  width: 50%;
 }
 
 .asset-price-box {

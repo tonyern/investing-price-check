@@ -9,32 +9,45 @@ exports[`Asset price checker snapshot test 1`] = `
   >
     Current Asset Prices
   </div>
-  <ul>
-    <li
-      className="asset"
-    >
-      Bitcoin: $
-      ---
-    </li>
-    <li
-      className="asset"
-    >
-      Bitcoin Cash: $
-      ---
-    </li>
-    <li
-      className="asset"
-    >
-      Gold: $
-      ---
-    </li>
-    <li
-      className="asset"
-    >
-      Silver: $
-      ---
-    </li>
-  </ul>
+  Friday, 19 March 2021
+  <table>
+    <tr>
+      <th>
+        Bitcoin:
+      </th>
+      <td>
+        $
+        ---
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Bitcoin Cash:
+      </th>
+      <td>
+        $
+        ---
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Gold:
+      </th>
+      <td>
+        $
+        ---
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Silver:
+      </th>
+      <td>
+        $
+        ---
+      </td>
+    </tr>
+  </table>
   <button
     className="price-btn"
     data-testid="get-price-test"

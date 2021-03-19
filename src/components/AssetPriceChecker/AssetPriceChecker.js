@@ -78,12 +78,24 @@ const AssetPriceChecker = () => {
       <div className="title">Current Asset Prices</div>
       {dateBuilder(new Date())}
 
-      <ul>
-        <li className="asset">Bitcoin: ${bitcoinPrice}</li>
-        <li className="asset">Bitcoin Cash: ${bitcoinCashPrice}</li>
-        <li className="asset">Gold: ${goldPrice}</li>
-        <li className="asset">Silver: ${silverPrice}</li>
-      </ul>
+      <table>
+        <tr>
+          <th>Bitcoin:</th>
+          <td>${bitcoinPrice}</td>
+        </tr>
+        <tr>
+          <th>Bitcoin Cash:</th>
+          <td>${bitcoinCashPrice}</td>
+        </tr>
+        <tr>
+          <th>Gold:</th>
+          <td>${goldPrice}</td>
+        </tr>
+        <tr>
+          <th>Silver:</th>
+          <td>${silverPrice}</td>
+        </tr>
+      </table>
 
       <button
         className="price-btn"
