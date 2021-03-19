@@ -14,6 +14,39 @@ const AssetPriceChecker = () => {
   const [goldPrice, setGoldPrice] = useState("---");
   const [silverPrice, setSilverPrice] = useState("---");
 
+  const dateBuilder = (d) => {
+    let months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    let days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+
+    let day = days[d.getDay()];
+    let date = d.getDate();
+    let month = months[d.getMonth()];
+    let year = d.getFullYear();
+
+    return `${day}, ${date} ${month} ${year}`;
+  };
+
   const fetchAPI = () => {
     axios
       .get(
@@ -43,13 +76,26 @@ const AssetPriceChecker = () => {
   return (
     <div className="asset-price-box">
       <div className="title">Current Asset Prices</div>
+      {dateBuilder(new Date())}
 
-      <ul>
-        <li className="asset">Bitcoin: ${bitcoinPrice}</li>
-        <li className="asset">Bitcoin Cash: ${bitcoinCashPrice}</li>
-        <li className="asset">Gold: ${goldPrice}</li>
-        <li className="asset">Silver: ${silverPrice}</li>
-      </ul>
+      <table>
+        <tr>
+          <th>Bitcoin:</th>
+          <td>${bitcoinPrice}</td>
+        </tr>
+        <tr>
+          <th>Bitcoin Cash:</th>
+          <td>${bitcoinCashPrice}</td>
+        </tr>
+        <tr>
+          <th>Gold:</th>
+          <td>${goldPrice}</td>
+        </tr>
+        <tr>
+          <th>Silver:</th>
+          <td>${silverPrice}</td>
+        </tr>
+      </table>
 
       <button
         className="price-btn"
