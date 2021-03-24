@@ -1,7 +1,6 @@
-import React from "react";
 import AssetPriceChecker from "./components/AssetPriceChecker/AssetPriceChecker";
 
-const App = () => {
+const App = (): JSX.Element => {
   return <AssetPriceChecker />;
 };
 

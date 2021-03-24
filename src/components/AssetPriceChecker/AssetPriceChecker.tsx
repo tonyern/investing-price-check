@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios, { AxiosResponse } from "axios";
 import "./asset-price-checker.css";
 
-const AssetPriceChecker = () => {
+const AssetPriceChecker = (): JSX.Element => {
   const metalsAPI = {
     key: "bd8x58t67kikf2jueqzeex2g0hpysu9rbzlgm9vbu3of34yhla013s04dz3r",
     base: "https://www.metals-api.com/api/latest",
@@ -48,14 +48,14 @@ const AssetPriceChecker = () => {
       .get(
         `${metalsAPI.base}?access_key=${metalsAPI.key}&base=${metalsAPI.currency}`
       )
-      .then((response: AxiosResponse) => {
+      .then((response: AxiosResponse<any>) => {
         console.log(response.data);
         setBitcoinPrice(Math.round(1 / response.data.rates.BTC));
         setBitcoinCashPrice(Math.round(1 / response.data.rates.BCH));
         setGoldPrice(Math.round(1 / response.data.rates.XAU));
         setSilverPrice(Math.round(1 / response.data.rates.XAG));
       })
-      .catch((error) => {
+      .catch((error: any) => {
         if (error.response) {
           // Error if error in retrieving data.
           console.log(error.response.data);
