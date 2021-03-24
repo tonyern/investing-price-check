@@ -39,12 +39,8 @@ const AssetPriceChecker = () => {
       "Saturday",
     ];
 
-    let day: string = days[d.getDay()];
-    let date: number = d.getDate();
-    let month: string = months[d.getMonth()];
-    let year: number = d.getFullYear();
-
-    return `${day}, ${date} ${month} ${year}`;
+    return `${days[d.getDay()]}, ${d.getDate()} 
+      ${months[d.getMonth()]} ${d.getFullYear()}`
   };
 
   const fetchAPI = (): void => {
