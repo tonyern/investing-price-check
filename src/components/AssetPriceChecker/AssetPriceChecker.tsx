@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import "./asset-price-checker.css";
 
 const AssetPriceChecker = () => {
@@ -9,13 +9,13 @@ const AssetPriceChecker = () => {
     currency: "USD",
   };
 
-  const [bitcoinPrice, setBitcoinPrice] = useState("---");
-  const [bitcoinCashPrice, setBitcoinCashPrice] = useState("---");
-  const [goldPrice, setGoldPrice] = useState("---");
-  const [silverPrice, setSilverPrice] = useState("---");
+  const [bitcoinPrice, setBitcoinPrice] = useState(0);
+  const [bitcoinCashPrice, setBitcoinCashPrice] = useState(0);
+  const [goldPrice, setGoldPrice] = useState(0);
+  const [silverPrice, setSilverPrice] = useState(0);
 
-  const dateBuilder = (d) => {
-    let months = [
+  const dateBuilder = (d: Date): string => {
+    let months: string[] = [
       "January",
       "February",
       "March",
@@ -29,7 +29,7 @@ const AssetPriceChecker = () => {
       "November",
       "December",
     ];
-    let days = [
+    let days: string[] = [
       "Sunday",
       "Monday",
       "Tuesday",
@@ -39,20 +39,20 @@ const AssetPriceChecker = () => {
       "Saturday",
     ];
 
-    let day = days[d.getDay()];
-    let date = d.getDate();
-    let month = months[d.getMonth()];
-    let year = d.getFullYear();
+    let day: string = days[d.getDay()];
+    let date: number = d.getDate();
+    let month: string = months[d.getMonth()];
+    let year: number = d.getFullYear();
 
     return `${day}, ${date} ${month} ${year}`;
   };
 
-  const fetchAPI = () => {
+  const fetchAPI = (): void => {
     axios
       .get(
         `${metalsAPI.base}?access_key=${metalsAPI.key}&base=${metalsAPI.currency}`
       )
-      .then((response) => {
+      .then((response: AxiosResponse) => {
         console.log(response.data);
         setBitcoinPrice(Math.round(1 / response.data.rates.BTC));
         setBitcoinCashPrice(Math.round(1 / response.data.rates.BCH));
