@@ -75,22 +75,24 @@ const AssetPriceChecker = (): JSX.Element => {
       {dateBuilder(new Date())}
 
       <table>
-        <tr>
-          <th>Bitcoin:</th>
-          <td>${bitcoinPrice}</td>
-        </tr>
-        <tr>
-          <th>Bitcoin Cash:</th>
-          <td>${bitcoinCashPrice}</td>
-        </tr>
-        <tr>
-          <th>Gold:</th>
-          <td>${goldPrice}</td>
-        </tr>
-        <tr>
-          <th>Silver:</th>
-          <td>${silverPrice}</td>
-        </tr>
+        <tbody>
+          <tr>
+            <th>Bitcoin:</th>
+            <td>${bitcoinPrice}</td>
+          </tr>
+          <tr>
+            <th>Bitcoin Cash:</th>
+            <td>${bitcoinCashPrice}</td>
+          </tr>
+          <tr>
+            <th>Gold:</th>
+            <td>${goldPrice}</td>
+          </tr>
+          <tr>
+            <th>Silver:</th>
+            <td>${silverPrice}</td>
+          </tr>
+        </tbody>
       </table>
 
       <button
