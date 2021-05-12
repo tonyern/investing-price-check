@@ -3,8 +3,8 @@ import axios, { AxiosResponse } from "axios";
 import "./asset-price-checker.css";
 
 const AssetPriceChecker = (): JSX.Element => {
+  const { REACT_APP_METALS_API_ACCESS_KEY } = process.env;
   const metalsAPI = {
-    key: "bd8x58t67kikf2jueqzeex2g0hpysu9rbzlgm9vbu3of34yhla013s04dz3r",
     base: "https://www.metals-api.com/api/latest",
     currency: "USD",
   };
@@ -46,7 +46,7 @@ const AssetPriceChecker = (): JSX.Element => {
   const fetchAPI = (): void => {
     axios
       .get(
-        `${metalsAPI.base}?access_key=${metalsAPI.key}&base=${metalsAPI.currency}`
+        `${metalsAPI.base}?access_key=${REACT_APP_METALS_API_ACCESS_KEY}&base=${metalsAPI.currency}`
       )
       .then((response: AxiosResponse<any>) => {
         console.log(response.data);
